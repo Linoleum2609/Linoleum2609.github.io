@@ -13,21 +13,21 @@ title: kunihiro's sphere
 email: lanwireless@outlook.com
 description: >- # this means to ignore newlines until "url:"
   Nothing
-url: https://mycodingsucks.github.io # the base hostname & protocol for your site
+url: Linoleum2609.github.io # the base hostname & protocol for your site
 
 # jekyll-paginate
 paginate: 5
 paginate_path: "/blog/page:num/"
 
 # Build settings
-remote_theme: MyCodingSucks/MyCodingSucks.github.io
+remote_theme: Linoleum2609/Linoleum2609.github.io
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
   
 # Google Analytics
-google_analytics: UA—174685768-1
+google_analytics: 
 
 dash:
   date_format: "%b %-d, %Y"
@@ -38,10 +38,10 @@ dash:
   # generate social links in footer
   # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
   social_links:
-    - url: https://twitter.com/citric_and_acid 
+    - url: https://twitter.com/krypterad_
       icon: twitter-square
       color: cyan
-    - url: https://github.com/MyCodingSucks 
+    - url: https://github.com/Linoleum2609
       icon: github-square
       color: purple
       
