@@ -1,0 +1,48 @@
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+# --------------------------------------------------------------------------------
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+# --------------------------------------------------------------------------------
+
+title: kunihiro's sphere
+email: lanwireless@outlook.com
+description: >- # this means to ignore newlines until "url:"
+  Nothing
+url: https://mycodingsucks.github.io # the base hostname & protocol for your site
+
+# jekyll-paginate
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# Build settings
+remote_theme: MyCodingSucks/MyCodingSucks.github.io
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  
+# Google Analytics
+google_analytics: UA—174685768-1
+
+dash:
+  date_format: "%b %-d, %Y"
+
+  disqus:
+    shortname: kunihiro-blog 
+ 
+  # generate social links in footer
+  # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
+  social_links:
+    - url: https://twitter.com/citric_and_acid 
+      icon: twitter-square
+      color: cyan
+    - url: https://github.com/MyCodingSucks 
+      icon: github-square
+      color: purple
+      
+  show_author: true
