@@ -130,6 +130,17 @@
     width: 100%;
   }
 
+  table {
+    margin-bottom: 1em;
+    border-collapse: collapse;
+    border: 1px solid;
+  }
+
+  th, td {
+    border: 1px solid;
+    padding: 5px 10px;
+  }
+
   ol > li {
     margin-left: 1em;
     text-align: left;
@@ -138,7 +149,7 @@
 
   ul > li {
     text-align: left;
-    margin-bottom: 1em;
+    margin: 1em 0em;
     @include themed() {
        color: t('list-primary');
     }

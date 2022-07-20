@@ -34,6 +34,7 @@ dash:
 
   # generate social links in footer
   # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
+  # Check https://fontawesome.com/v5/search
   social_links:
     - url: https://twitter.com/krypterad_
       icon: twitter-square
@@ -41,5 +42,8 @@ dash:
     - url: https://github.com/Linoleum2609
       icon: github-square
       color: purple
-      
+    - url: https://osu.ppy.sh/users/9829957
+      icon: circle
+      color: pink
+
   show_author: true
