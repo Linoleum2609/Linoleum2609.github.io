@@ -4,6 +4,8 @@ Theme: https://github.com/bitbrain/jekyll-dash
 
 Changing from their early version which used plugins to non-plugins
 
+I also deleted my old account. I am trying to find a alternative of GitHub Pages but failed.
+
 ## Some documents:  
 ### How to build a jekyll blog  
 https://mathsigit.github.io/blog_page/2017/11/07/githubpage-with-jekyll/  

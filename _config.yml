@@ -25,16 +25,13 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
-  
-# Google Analytics
-google_analytics: 
 
 dash:
   date_format: "%b %-d, %Y"
 
-  disqus:
-    shortname: kunihiro-blog 
- 
+  giscus:
+    repo: Linoleum2609/Linoleum2609.github.io
+
   # generate social links in footer
   # supported colors: green, red, orange, blue, cyan, pink, teal, yellow, indigo, purple
   social_links:

@@ -35,9 +35,9 @@ layout: default
 
 </div>
 
-{% if site.dash.disqus.shortname %}
+{% if site.dash.giscus.repo != null %}
 	<div class="comments">
-		{% include disqus.html %}
+		{% include giscus.html %}
 	</div>
 {% endif %}
 

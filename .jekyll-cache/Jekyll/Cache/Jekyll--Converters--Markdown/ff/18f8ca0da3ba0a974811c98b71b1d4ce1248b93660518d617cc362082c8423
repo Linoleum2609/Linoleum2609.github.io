@@ -1,0 +1,218 @@
+I"bA<p>Well, actually I don’t want too many people in my university know this, so I decided writing this blog in English and not to mention the name of my school clearly here. You can find the name in the blog, if it isn’t your school, hopefully, the part of cross compiling can help you.</p>
+
+<hr />
+
+<p>I have two routers in my dormitory. During the last year, the software, called <em><a href="https://github.com/updateing/minieap">MiniEAP</a></em>, ran on my Redmi router, and another router, manufactured by Netgear, allowed me to use 5GHz WLAN in 64 Channel, which is disabled in my Redmi router. It’s pretty annoying, not only because of those messy cables, but also because when I want to connect to my Netgear router via ssh, I have to plug in another network cable to connect. That’s why I finally decided to spend my Saturday to finish it. 	<del>(COVID-19 sucks. I want to play maimai in game centre)</del></p>
+
+<p>I decided to cross compile MiniEAP for my Netgear R6900, which is running Asuswrt-Merlin. To get started, you need Linux. I am using Debian sid, but you can use any distro you like. Anyway, it is still a better choice to check the <a href="https://github.com/RMerl/asuswrt-merlin.ng/wiki">wiki</a>…</p>
+
+<p>I found a docker on the Internet, and someone used it on macOS, but I haven’t tried yet, so I will use Debian sid to introduce.</p>
+
+<h2 id="preparation">Preparation</h2>
+
+<h3 id="dependencies">Dependencies</h3>
+
+<p>To build the environment, some packages need to be installed at first. In fact, you can find those packages everywhere on the Internet. Here is what I used:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt --no-install-recommends install autoconf automake bash bison bzip2 diffutils file flex g++ gawk gcc-multilib gettext gperf groff-base libncurses-dev libexpat1-dev libslang2 libssl-dev libtool libxml-parser-perl make patch perl pkg-config python sed shtool tar texinfo unzip zlib1g zlib1g-dev lib32z1-dev lib32stdc++6 automake1.11
+</code></pre></div></div>
+
+<p>Also add i386 arch to package dependencies (I guess no one use 32 bits or x86 here):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install libelf-dev:i386 libelf1:i386
+</code></pre></div></div>
+
+<h3 id="source-code">Source Code</h3>
+
+<p>Maybe you have noticed that the repository had transferred to <a href="https://github.com/RMerl/asuswrt-merlin.ng">asuswrt-merlin.ng</a>, and <a href="https://github.com/RMerl/asuswrt-merlin">the old one</a> had archived. However, it seems that it doesn’t include toolchains in <a href="https://github.com/RMerl/asuswrt-merlin.ng">asuswrt-merlin.ng</a>. The toolchains is in another repository:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/RMerl/am-toolchains.git
+</code></pre></div></div>
+
+<p>And don’t forget MiniEAP:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/updateing/minieap.git
+</code></pre></div></div>
+
+<p>In my school, the patches are necessary. These patches are used by GZHU originally, but they are also available in my school:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/ysc3839/openwrt-minieap.git package/minieap
+</code></pre></div></div>
+
+<h3 id="applying-patches">Applying Patches</h3>
+
+<p>In <code class="language-plaintext highlighter-rouge">HOME</code> we have two folders, <code class="language-plaintext highlighter-rouge">minieap/</code> and <code class="language-plaintext highlighter-rouge">openwrt-minieap/</code>. Now <code class="language-plaintext highlighter-rouge">cd</code> to <code class="language-plaintext highlighter-rouge">minieap/</code>, then try these commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>patch -p1 &lt; ~/openwrt-minieap/patches/001-enable-gbconv.patch
+patch -p1 &lt; ~/openwrt-minieap/patches/002-remove-date-in-log-message.patch
+patch -p1 &lt; ~/openwrt-minieap/patches/003-disable-hdd-serial-query-and-show-warning.patch
+patch -p1 &lt; ~/openwrt-minieap/patches/004-fix-logging-buffer.patch
+patch -p1 &lt; ~/openwrt-minieap/patches/005-remove-pid-check-warn.patch
+</code></pre></div></div>
+
+<p><img src="/pics/2021-06-06/wtf.jpg" alt="wtf" /></p>
+
+<p>Actually I want to use an asterisk to get them done at once, but it threw me this… wtf</p>
+
+<h3 id="environment">Environment</h3>
+
+<p>After patching, we need to create some symlinks. For my router, R6900, I just need to focus on <code class="language-plaintext highlighter-rouge">BCM-SDK</code> :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ln -s ~/am-toolchains/brcm-arm-sdk/hndtools-arm-linux-2.6.36-uclibc-4.5.3 /opt/brcm-arm
+echo "PATH=\$PATH:/opt/brcm-arm/bin" &gt;&gt; ~/.profile
+</code></pre></div></div>
+
+<p>With those commands, while compiling, probably you won’t success. Maybe you will got this after the <code class="language-plaintext highlighter-rouge">ldd</code> command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ldd /opt/brcm-arm/libexec/gcc/arm-brcm-linux-uclibcgnueabi/4.5.3/cc1
+      linux-gate.so.1 =&gt;  (0xf77bf000)
+      libmpc.so.2 =&gt; not found
+      libmpfr.so.4 =&gt; not found
+      libgmp.so.10 =&gt; not found
+      libdl.so.2 =&gt; /lib/i386-linux-gnu/libdl.so.2 (0xf77aa000)
+      libelf.so.1 =&gt; /usr/lib/i386-linux-gnu/libelf.so.1 (0xf7792000)
+      libc.so.6 =&gt; /lib/i386-linux-gnu/libc.so.6 (0xf75e3000)
+      /lib/ld-linux.so.2 (0xf77c0000)
+</code></pre></div></div>
+
+<p>Some libraries are missing. So you need:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/brcm-arm/lib:/usr/local/lib:/usr/lib
+</code></pre></div></div>
+
+<p><del>That’s all.</del></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ldd /opt/brcm-arm/libexec/gcc/arm-brcm-linux-uclibcgnueabi/4.5.3/cc1
+      linux-gate.so.1 <span class="o">(</span>0xf7f98000<span class="o">)</span>
+      libmpc.so.2 <span class="o">=&gt;</span> /opt/brcm-arm/lib/libmpc.so.2 <span class="o">(</span>0xf7f7f000<span class="o">)</span>
+      libmpfr.so.4 <span class="o">=&gt;</span> /opt/brcm-arm/lib/libmpfr.so.4 <span class="o">(</span>0xf7f30000<span class="o">)</span>
+      libgmp.so.10 <span class="o">=&gt;</span> /opt/brcm-arm/lib/libgmp.so.10 <span class="o">(</span>0xf7ed3000<span class="o">)</span>
+      libdl.so.2 <span class="o">=&gt;</span> /lib/i386-linux-gnu/libdl.so.2 <span class="o">(</span>0xf7ead000<span class="o">)</span>
+      libelf.so.1 <span class="o">=&gt;</span> /lib/i386-linux-gnu/libelf.so.1 <span class="o">(</span>0xf7e8f000<span class="o">)</span>
+      libc.so.6 <span class="o">=&gt;</span> /lib/i386-linux-gnu/libc.so.6 <span class="o">(</span>0xf7ca6000<span class="o">)</span>
+      libm.so.6 <span class="o">=&gt;</span> /lib/i386-linux-gnu/libm.so.6 <span class="o">(</span>0xf7ba2000<span class="o">)</span>
+      /lib/ld-linux.so.2 <span class="o">(</span>0xf7f9a000<span class="o">)</span>
+      libz.so.1 <span class="o">=&gt;</span> /lib/i386-linux-gnu/libz.so.1 <span class="o">(</span>0xf7b85000<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="cross-compiling">Cross Compiling</h2>
+
+<p>I would like to deal with it one file by one file.</p>
+
+<h3 id="minieapconfigmk">minieap/config.mk</h3>
+
+<p><code class="language-plaintext highlighter-rouge">config.mk</code> is used for compiling just like its filename. I would like a simple <del>and violent</del> method, just directly add this on the last of the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CC := ~/am-toolchains/brcm-arm-sdk/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin/arm-uclibc-linux-2.6.36-gcc
+</code></pre></div></div>
+
+<p>As I failed for many times, even I know I shouldn’t do like this, but I am a little bit annoyed at last. <strong>Plz adjust the paths for your own environment if necessary</strong>.</p>
+
+<p>Also remove the “#” if front of <code class="language-plaintext highlighter-rouge">PLUGIN_MODULES += ifaddrs</code>, as we need to use it later.</p>
+
+<p>After all, the <code class="language-plaintext highlighter-rouge">config.mk</code> without comments looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PLUGIN_MODULES := \
+  packet_plugin_printer \
+  packet_plugin_rjv3
+
+PLUGIN_MODULES += if_impl_sockraw
+
+ENABLE_DEBUG  := false
+ENABLE_ICONV  := false
+ENABLE_GBCONV := true
+STATIC_BUILD  := false
+
+LIBICONV_STANDALONE := false
+
+CUSTOM_CFLAGS :=
+CUSTOM_LDFLAGS :=
+CUSTOM_LIBS :=
+
+CC := ~/am-toolchains/brcm-arm-sdk/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin/arm-uclibc-linux-2.6.36-gcc
+PLUGIN_MODULES += ifaddrs
+</code></pre></div></div>
+
+<h3 id="minieapmakefile">minieap/Makefile</h3>
+
+<p>If you run <code class="language-plaintext highlighter-rouge">make</code> directly, you will get an error about <code class="language-plaintext highlighter-rouge">-Wpedantic</code>, which isn’t supported by the version of gcc. Just replace it with <code class="language-plaintext highlighter-rouge">-std=gnu99</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4c4
+&lt; COMMON_CFLAGS := $(CUSTOM_CFLAGS) $(CFLAGS) -Wall -Wpedantic -D_GNU_SOURCE
+---
+&gt; COMMON_CFLAGS := $(CUSTOM_CFLAGS) $(CFLAGS) -Wall -std=gnu99 -D_GNU_SOURCE
+</code></pre></div></div>
+
+<p>(You can find the tip <code class="language-plaintext highlighter-rouge">use option -std=c99 or -std=gnu99 to compile your code</code> if you just remove <code class="language-plaintext highlighter-rouge">-Wpedantic</code>, but it seems that using <code class="language-plaintext highlighter-rouge">-std=c99</code> will cause some syntax errors.)</p>
+
+<h3 id="ifaddrs">ifaddrs</h3>
+
+<p>Then if you start compiling, you will get this sh*t:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>util/net_util.o: In function `obtain_iface_mac':
+net_util.c:(.text+0xa8): undefined reference to `getifaddrs'
+net_util.c:(.text+0x180): undefined reference to `freeifaddrs'
+util/net_util.o: In function `obtain_iface_ip_mask':
+net_util.c:(.text+0x1b0): undefined reference to `getifaddrs'
+net_util.c:(.text+0x36c): undefined reference to `freeifaddrs'
+collect2: ld returned 1 exit status
+</code></pre></div></div>
+
+<p>It doesn’t find those functions that the platform doesn’t provide, so we need to add those files ourselves. That’s why I add <code class="language-plaintext highlighter-rouge">PLUGIN_MODULES += ifaddrs</code> in <code class="language-plaintext highlighter-rouge">config.mk</code> before, as it enables us to use those files.</p>
+
+<p>Don’t worry, we still have mighty GitHub. Many file can be found in GitHub. I used this <a href="https://github.com/SWRT-dev/bluecave-asuswrt/blob/master/release/src/router/smartdns/src/lib/ifaddrs.c">ifaddrs.c</a> and this <a href="https://github.com/lattera/glibc/blob/master/inet/ifaddrs.h">ifaddrs.h</a>. I know little about C or C++, so I can’t give too much advice. Add <code class="language-plaintext highlighter-rouge">ifaddrs.h</code> in <code class="language-plaintext highlighter-rouge">includes/</code> and add <code class="language-plaintext highlighter-rouge">ifaddrs.c</code> in <code class="language-plaintext highlighter-rouge">util/ifaddrs/</code>. Don’t forget to edit <code class="language-plaintext highlighter-rouge">config.mk</code> if you didn’t do it before.</p>
+
+<p>After all things are done, enter <code class="language-plaintext highlighter-rouge">make</code> and start compiling. Compiling MiniEAP is pretty fast. You can type <code class="language-plaintext highlighter-rouge">file minieap</code> to check if everything is fine.</p>
+
+<p><img src="/pics/2021-06-06/file.png" alt="file" /></p>
+
+<h2 id="run">RUN!</h2>
+
+<p>Using <code class="language-plaintext highlighter-rouge">scp</code> or any other method to upload the file to your router. Type <code class="language-plaintext highlighter-rouge">./minieap</code> you will get a message asking you to login. With <code class="language-plaintext highlighter-rouge">-w</code> , you can save the configuration to <code class="language-plaintext highlighter-rouge">/etc/minieap.conf</code>. Don’t forget to move your files <strong>(one is your <code class="language-plaintext highlighter-rouge">minieap</code> program and another is the <code class="language-plaintext highlighter-rouge">/etc/minieap.conf</code>)</strong> to <code class="language-plaintext highlighter-rouge">/jffs</code>, or the files will disappear after rebooting.</p>
+
+<p>There’re some problems:</p>
+
+<h3 id="auto-reboot">Auto Reboot</h3>
+
+<p>To use <code class="language-plaintext highlighter-rouge">crontab</code> in <code class="language-plaintext highlighter-rouge">Arsuswrt-Merlin</code> is a complex thing, as everything not in <code class="language-plaintext highlighter-rouge">/jffs</code> will be delete. However, we have <a href="https://github.com/RMerl/asuswrt-merlin.ng/wiki/Scheduled-Reboot">this</a> in wiki. Just refer it.</p>
+
+<h3 id="auto-reauth">Auto Reauth</h3>
+
+<p>According to this <a href="https://github.com/updateing/minieap/issues/43">issue</a>, you need to delete <code class="language-plaintext highlighter-rouge">no-auto-reauth</code> to enable auto reauth. It is simple but I still can’t reauth, but it is worth trying.</p>
+
+<p>My solution is ping. Here is my script:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="k">while </span><span class="nb">true
+</span><span class="k">do
+	</span>ping <span class="nt">-q</span> <span class="nt">-c</span> 3 cn.bing.com <span class="o">&gt;&gt;</span> /dev/null
+	<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="nt">-eq</span> 0 <span class="o">]</span>
+	<span class="k">then
+		</span><span class="nb">echo</span> <span class="s2">"[</span><span class="sb">`</span><span class="nb">date</span><span class="sb">`</span><span class="s2">]Everything is fine."</span>
+	<span class="k">else
+		</span><span class="nb">echo</span> <span class="s2">"[</span><span class="sb">`</span><span class="nb">date</span><span class="sb">`</span><span class="s2">]Failed. Restarting minieap."</span> <span class="o">&gt;&gt;</span> /var/log/watchdog.log
+		/jffs/minieap/minieap
+	<span class="k">fi
+done</span>
+</code></pre></div></div>
+
+<p>It means if the router cannot ping <code class="language-plaintext highlighter-rouge">cn.bing.com</code> successfully, it will write a log in <code class="language-plaintext highlighter-rouge">/var/log/watchdog.log</code> and restart MiniEAP. In fact I don’t want any outputs, as my MiniEAP disconnects every 20 seconds…</p>
+
+<p><img src="/pics/2021-06-06/log.png" alt="log" /></p>
+
+<p>In User scripts, we have <code class="language-plaintext highlighter-rouge">wan-script</code>, add this three lines in the script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /jffs/minieap/minieap.conf /etc/
+/jffs/minieap/minieap
+/jffs/minieap/watchdog.sh
+</code></pre></div></div>
+
+<p><strong>Adjust the paths for your own environment if necessary</strong>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">wan-script</code> contains the scripts that will run after WAN interface came up, in new version of <code class="language-plaintext highlighter-rouge">Asuswrt-Merlin</code>, it have been replaced by <code class="language-plaintext highlighter-rouge">wan-start</code>. The first line means copy new <code class="language-plaintext highlighter-rouge">minieap.conf</code> to <code class="language-plaintext highlighter-rouge">/etc</code>, as everything has gone after rebooting. Then it restarts <code class="language-plaintext highlighter-rouge">MiniEAP</code>. Finally, the <code class="language-plaintext highlighter-rouge">watchdog.sh</code> will run to keep auth.</p>
+
+<p>Now enjoy your Campus Internet. Everything is fine.</p>
+
+:ET
