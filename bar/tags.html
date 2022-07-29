@@ -32,6 +32,10 @@ The following part removes dulpicated tags and invalid tags like blank tag.
 	{% endif %}
 {% endfor %}
 
+{% unless site.dash.show_author == false %}
+  {% include author.html %}
+{% endunless %}
+
 <p style="font-size:30px">Tags: </p>
 {% comment %}
 =======================
