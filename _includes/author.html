@@ -1,3 +1,5 @@
+<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
 <div class="author-box">
     <div class="author-box">
         <img src="/assets/avatar.jpg" class="author-avatar" alt="Avatar"/>
@@ -6,7 +8,7 @@
 
     <div class="social_links">
         {% for link in site.dash.social_links %}
-        <a class="color-{{ link.color }}-hover" href="{{ link.url }}"><i class="fab fa-{{ link.icon }}"></i></a>
+        <a class="color-{{ link.color }}-hover" href="{{ link.url }}"><i class="iconify-inline" data-icon="{{ link.icon }}"></i></a>
         {% endfor %}
     </div>
 </div>

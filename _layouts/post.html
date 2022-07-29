@@ -17,16 +17,6 @@ layout: default
 		{% endfor %}
     </span>
 
-	<!-- fucking plugins
-	{% if site.plugins contains "jekyll/tagging" %}
-	<div class="post-tags">
-		{% for tag in page.tags %}
-		<a class="tag" href="/tag/{{ tag }}/">{{ tag }}</a>
-		{% endfor %}
-	</div>
-	{% endif %}
-	-->
-
 	<div class="post-date">Published on {{ page.date | date_to_string }}</div>
 	{% if page.description != null %}
 		<div class="post-description">{{ page.description }}</div>
@@ -42,23 +32,3 @@ layout: default
 {% endif %}
 
 <br />
-
-<!--	This is relative post.
-{% assign size = site.related_posts | size %}
-{% if size != 0 %}
-	<div class="related">
-		<h2>related posts</h2>
-		<ul class="related-posts">
-		{% for post in site.related_posts limit:3 %}
-		<li>
-		<h3>
-		<a href="{{ post.url }}"  style="margin-left:-30px; margin-right:20px; font-size:25px">
-			{{ post.title }}
-		</a>
-		</h3>
-		</li>
-		{% endfor %}
-	</ul>
-</div>
-{% endif %}
--->
