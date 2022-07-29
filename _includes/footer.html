@@ -1,36 +1,42 @@
 <footer class="site-footer">
-
 	<style>
-		#ul_bar {
-			list-style-type: none;
-			margin: 30px 0px 15px 0px;
-			padding: 0;
-			overflow: hidden;
-			text-align: center;
-			text-decoration: none;
-		}
-
-		#ul_bar>li {
-			float: left;
+		.ul_bar {
+			overflow: auto;
+			margin-bottom: 15px;
+			white-space: nowarp;
 			border-style: dashed none;
 			border-width: 2px;
-			font-size: 35px;
+			border-color: white;
+			width: fit-content;
 		}
 
-		#ul_bar>li>a {
-			display: block;
+		.ul_bar > a {
+			font-size: 30px;
+			display: inline-block;
 			text-align: center;
-			padding: 14px 8px 14px 18px;
+			padding: 8px 13px;
 			text-decoration: none;
 		}
-	</style>
 
+		@media screen and (max-width: 360px) {
+			.ul_bar {
+				overflow: auto;
+				margin-bottom: 15px;
+				white-space: nowarp;
+				border-style: dashed none;
+				border-width: 2px;
+				border-color: white;
+				width: min-content;
+			}
+		}
+	</style>
+	
 	<div class="wrapper">
-		<ul id="ul_bar">
-			<li><a href="/bar/tags.html">tags</a></li>
-			<li><a href="/bar/about.html">about</a></li>
-			<li><a href="/bar/friends.html">friends</a></li>
-		</ul>
+		<div class="ul_bar">
+			<a href="/bar/tags.html">tags</a>
+			<a href="/bar/about.html">about</a>
+			<a href="/bar/friends.html">friends</a>
+		</div>
 
 		{%- include theme-toggle.html -%}
 		<div class="credits">
