@@ -1,10 +1,15 @@
 # BLOG
 
+## Some explanations
+
 Theme: https://github.com/bitbrain/jekyll-dash  
+Modding from their early version which included plugins to non-plugins
 
-Changing from their early version which used plugins to non-plugins
+I deleted two main tracking extensions, Google Analystics and Disqus. It may have something left in files, but it shouldn't able to send data, as Google Analystics was totally deleted, and Disqus was replaced by [giscus](https://github.com/giscus/giscus).
 
-I also deleted my old account. I am trying to find a alternative of GitHub Pages but failed.
+I also deleted my old account. Therefore, there is no 'forked from' to show the source. Deeply apologise to the original author.
+
+Usually I would like to recommend you to fork the original repo rather mine, because I don't want to give a clean one, which means you have to delete all my posts, and change everything you need to change. In fact, I don't even believe that someone can find this repo.
 
 ## Some documents:
 
@@ -26,7 +31,3 @@ https://github.com/pattex/jekyll-tagging
 https://github.com/pathawks/liquid-md5
 
 ---
-
-I deleted two main tracking extensions, Google Analystics and Disqus. It may have something left in files, but it shouldn't able to send data.
-
-Google Analystics is disabled, and Disqus was replaced by [giscus](https://github.com/giscus/giscus)
