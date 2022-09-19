@@ -13,7 +13,52 @@
         <span class="star star--5"></span>
         <span class="star star--6"></span>
     </label>
+    <span class="tooltip">
+        Applying theme may need to refresh pages.
+    </span>
 </div>
+
+<style>
+    @media only screen and (min-width: 910px) {
+        .toggleWrapper .tooltip {
+            visibility: hidden;
+            width: 200px;
+            bottom: 120%;
+            left: 50%;
+            margin-left: -100px;
+            background-color: #1E2227;
+            color: #DAE4ED;
+            text-align: center;
+            padding: 5px 5px;
+            border-radius: 6px;
+        
+            position: absolute;
+            z-index: 1;
+        }
+	}
+
+    @media only screen and (max-width: 910px) {
+        .toggleWrapper .tooltip {
+            visibility: hidden;
+            width: 200px;
+            background-color: #1E2227;
+            color: #DAE4ED;
+            text-align: center;
+            padding: 5px 5px;
+            border-radius: 6px;
+        
+            position: absolute;
+            z-index: 1;
+            top: -15px;
+            right: 105%;
+        }
+	}
+
+    .toggleWrapper:hover .tooltip {
+        visibility: visible;
+    }
+</style>
+
 <script type="text/javascript">
 const theme = localStorage.getItem('theme');
 
