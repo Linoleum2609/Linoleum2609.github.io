@@ -35,7 +35,7 @@ The most common way to specify one’s gender is to use pronouns.
 | :--: | :--: | :--: | :--: | :--: |
 | εγώ	| εσύ |	αυτός	| αυτή	| αυτό |
 
-**Pronouns in Standard Chinese \^1**
+**Pronouns in Standard Chinese ^1**
 
 | 1	| 2	| 3 (for male) |	3 (for female) | 3 (inanimate and animate) |
 | :--: | :--: | :--: | :--: | :--: |
@@ -100,7 +100,7 @@ During 2020, ‘πρόεδρος or προεδρίνα’ received a lot of atte
 
 In 2014, a Taiwanese politician, Lai Pin-yu, who participated in the Sunflower Student Movement, becomes ‘太陽花女戰神’, which literally means ‘Sunflower goddess of war’, on the Internet. 
 The word ‘女戰神 (Pinyin: nǚ zhàn shén)’ literally translates to ‘goddess’. However, just like above, the form is not the same in Chinese. This compound word consists of ‘女’ and ‘戰神’. Using the unmarked form, it is ‘woman’ and ‘god of war’.
-Her reply showed the same opinion: ‘Why was “women” added? You calls Huang Kuo-chang “god of war”, calls Lin Fei-fan “god of war”. Why calls me “women god of war”? I think this is because women are assumed to be weaker, so when they feel you are different, they will specifically show that you are female. \^2’ 
+Her reply showed the same opinion: ‘Why was “women” added? You calls Huang Kuo-chang “god of war”, calls Lin Fei-fan “god of war”. Why calls me “women god of war”? I think this is because women are assumed to be weaker, so when they feel you are different, they will specifically show that you are female. ^2’ 
 
 ### Inside curse words
 
