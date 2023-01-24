@@ -120,8 +120,8 @@ There is no other way to solve the problem than to examine the culture and socie
 
 ## Notes
 
-[^1](https://kunihi.ro/2023/01/24/A-Comparison-on-Gender-between-Chinese-and-Greek-and-Gender-Issues-in-Chinese.html#pronouns) Standard Chinese is Mandarin used in Mainland China. There is also Taiwanese Mandarin, which has slight differences with Stander Chinese.  
-[^2](https://kunihi.ro/2023/01/24/A-Comparison-on-Gender-between-Chinese-and-Greek-and-Gender-Issues-in-Chinese.html#inside-words) 《[台灣女性參政遭遇挑戰：從性羞辱到婚育觀](https://www.bbc.com/zhongwen/trad/chinese-news-51006244)》, BBC 中文, 原文：「為什麼要加一個女字？你會叫黃國昌戰神，叫林飛帆戰神，為什麼叫我女戰神？我覺得背後就是預設女性應該是比較弱的，所以當他們覺得你不一樣的時候，還要特別標注一下你是女的。」
+[1](https://kunihi.ro/2023/01/24/A-Comparison-on-Gender-between-Chinese-and-Greek-and-Gender-Issues-in-Chinese.html#pronouns) Standard Chinese is Mandarin used in Mainland China. There is also Taiwanese Mandarin, which has slight differences with Stander Chinese.  
+[2](https://kunihi.ro/2023/01/24/A-Comparison-on-Gender-between-Chinese-and-Greek-and-Gender-Issues-in-Chinese.html#inside-words) 《[台灣女性參政遭遇挑戰：從性羞辱到婚育觀](https://www.bbc.com/zhongwen/trad/chinese-news-51006244)》, BBC 中文, 原文：「為什麼要加一個女字？你會叫黃國昌戰神，叫林飛帆戰神，為什麼叫我女戰神？我覺得背後就是預設女性應該是比較弱的，所以當他們覺得你不一樣的時候，還要特別標注一下你是女的。」
 
 ## Further Reading:
 George Lakoff, (1987) *Women, Fire, and Dangerous Things: What Categories Reveal About the Mind*, University of Chicago Press
