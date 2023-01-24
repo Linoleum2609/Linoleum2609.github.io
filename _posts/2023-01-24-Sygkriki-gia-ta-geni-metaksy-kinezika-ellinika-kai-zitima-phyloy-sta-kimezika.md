@@ -79,7 +79,7 @@ tags: language linguistics gender
 Ωστόσο, η αλήθεια δεν είναι πάντα όπως η θεωρία. Για να γνωρίζουμε την πραγματικότητα, μια δημοσκόπηση ορίστηκε για διερεύνηση αν η αντωνυμία «他» θεωρείται ακόμα χωρίς φύλο ή όχι.
 
 ![vote result](/pics/2023-01-24/vote.png)  
-(Picture: The result of a not very precise survey)
+(Το αποτέλεσμα μιας όχι πολύ ακριβούς δημοσκόπησης)
 
 Υπάρχουν τυχαία 50 ψηφοφόροι, και 44% (22 άτομα, συμπεριλαμβανομένου εμένα), σχεδόν τα μισά, νομίζουν ότι δεν είναι ουδέτερο ως προς το φύλο. Σημαίνει ότι η αντωνυμία «她», που επηρεάστηκε από τα αγγλικά, πήρε τη γυναικεία σημασία από την αντωνυμία «他», η οποία έγινε η αντωνυμία των ανδρών στην ομιλία, χάνοντας την ουδετερότητά του αλλά εξακολουθεί να είναι γενική στη γράμμα, συν το τρέχον ζήτημα προτίμησης γιου στην Κίνα, προσκαλώντας το πρόβλημα «άντρα ως κανόνα» στις αντωνυμίες της κινεζικής γλώσσας.
 
@@ -114,7 +114,8 @@ tags: language linguistics gender
 
 ## Παραπομπές
 
-[1](https://kunihi.ro/2023/01/24/Sygkriki-gia-ta-geni-metaksy-kinezika-ellinika-kai-zitima-phyloy-sta-kimezika.html#αντωνυμίες) Standard Chinese is Mandarin used in Mainland China. There is also Taiwanese Mandarin, which has slight differences with Stander Chinese.  
+[1](https://kunihi.ro/2023/01/24/Sygkriki-gia-ta-geni-metaksy-kinezika-ellinika-kai-zitima-phyloy-sta-kimezika.html#αντωνυμίες) Τα Τυποποιημένα Κινέζικα είναι Μανδαρινικά στην Ηπειρωτική Κίνα. Η Ταϊβανέζικα Μανδαρινικά στην Ταΐβαν έχει μικρή διαφορά.
+ 
 [2](https://kunihi.ro/2023/01/24/Sygkriki-gia-ta-geni-metaksy-kinezika-ellinika-kai-zitima-phyloy-sta-kimezika.html#λέξεις) 《[台灣女性參政遭遇挑戰：從性羞辱到婚育觀](https://www.bbc.com/zhongwen/trad/chinese-news-51006244)》, BBC 中文, 原文：「為什麼要加一個女字？你會叫黃國昌戰神，叫林飛帆戰神，為什麼叫我女戰神？我覺得背後就是預設女性應該是比較弱的，所以當他們覺得你不一樣的時候，還要特別標注一下你是女的。」
 
 ## Περαιτέρω ανάγνωση
