@@ -9,7 +9,7 @@ I deleted two main tracking extensions, Google Analystics and Disqus. It may hav
 
 I also deleted my old account. Therefore, there is no 'forked from' to show the source. Deeply apologise to the original author.
 
-Usually I would like to recommend you to fork the original repo rather mine, because I don't want to give a clean one, which means you have to delete all my posts, and change everything you need to change. In fact, I don't even believe that someone can find this repo.
+Usually I would like to recommend you to fork the original repo rather mine, because I may not be able to give a clean one now, which means you have to delete all my posts, and change everything you need to change. In fact, I don't even believe that someone can find this repo.
 
 ## Some documents:
 
