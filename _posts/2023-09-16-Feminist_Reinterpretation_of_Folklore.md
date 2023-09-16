@@ -102,10 +102,10 @@ When feminism meets folklore, the female voice from ancient times will reveal it
 
 ## NOTES
 
-[1](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#II) The version is from https://ctext.org/text.pl?node=367836, while the facsimile version can be found at https://ctext.org/library.pl?if=en&file=80539&page=43  
-[2](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#Folklore-feminism-and-ecology) https://www.studocu.com/in/document/alagappa-university/environmental-science/understanding-earth-as-a-living-organism/54341636  
-[3](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#V) According to Merriam-Webster dictionary  
-[4](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#V) Rogers, Kylie, "Why Myth Matters: The Value of the Female Voice in Greek Mythology" (2021), Page 44
+[1](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#ii) The version is from https://ctext.org/text.pl?node=367836, while the facsimile version can be found at https://ctext.org/library.pl?if=en&file=80539&page=43  
+[2](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#folklore-feminism-and-ecology) https://www.studocu.com/in/document/alagappa-university/environmental-science/understanding-earth-as-a-living-organism/54341636  
+[3](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#v) According to Merriam-Webster dictionary  
+[4](https://kunihi.ro/2023/09/16/Feminist_Reinterpretation_of_Folklore.html#v) Rogers, Kylie, "Why Myth Matters: The Value of the Female Voice in Greek Mythology" (2021), Page 44
 
 
 ## BIBLIOGRAPHY
