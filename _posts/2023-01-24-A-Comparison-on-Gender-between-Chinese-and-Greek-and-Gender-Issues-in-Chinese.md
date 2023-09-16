@@ -5,9 +5,7 @@ date:   2023-01-24
 tags: language linguistics gender
 ---
 
-# A Comparison on Gender between Chinese Language and Greek Language and Gender Issues in Chinese Language
-
-## Before start 
+## Before starting 
 
 This article (aka 小作文) is for my final exam of my lingustics class originally. I chose this topic because I thought that I may not be able to write about it after this time. Later, I decided to post it on my blog because I thought it was a topic worth discussing. Although I know that no one would enter my blog, I still wish those who see this article could rethink those gender problems in the language we speak every day because language is part of our daily life. Language changes can actually help improve this situation.
 
