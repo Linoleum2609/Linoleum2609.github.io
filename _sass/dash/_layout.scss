@@ -145,6 +145,7 @@
     margin-left: 1em;
     text-align: left;
     margin-bottom: 0em;
+    color: #ade0b9;
   }
 
   ul > li {
@@ -157,7 +158,8 @@
     margin-left: 0;
 
     &:before {
-      content: $icon-circle;
+      //content: $icon-circle;
+      content: '●';
       @include font-awesome-icon;
       margin-right: 0.5em;
     }
