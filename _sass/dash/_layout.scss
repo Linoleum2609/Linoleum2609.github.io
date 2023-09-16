@@ -157,7 +157,7 @@
     margin-left: 0;
 
     &:before {
-      content: $icon-check;
+      content: $icon-circle;
       @include font-awesome-icon;
       margin-right: 0.5em;
     }
