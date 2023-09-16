@@ -9,7 +9,7 @@ tags: folklore feminism gender
 
 Just like my last garbage, this article is my final assessment for the forklore class. I personally do not have too many words to say, as I know how poor it is. The proposal for uploading this article is just for those who read it can acquire the idea about cross-subject, knowing how far feminism can go with other subjects.
 
-Here, personally, I want to thank my professor [Mr. Georgios Kouzas](https://www.phil.uoa.gr/to_tmima/tomeas_byzantinis_filologias_kai_laografias/georgios_kouzas/), who provided me another chance to write something about gender. Even though this article seems in a really poor quality.
+Here, personally, I want to thank my professor [Georgios Kouzas](https://www.phil.uoa.gr/to_tmima/tomeas_byzantinis_filologias_kai_laografias/georgios_kouzas/), who provided me another chance to write something about gender. Even though this article seems in a really poor quality.
 
 ## ABSTRACT 
 
