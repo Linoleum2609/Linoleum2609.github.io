@@ -7,7 +7,7 @@ tags: language linguistics gender
 
 ## Before starting 
 
-This article (aka 小作文) is for my final exam of my lingustics class originally. I chose this topic because I thought that I may not be able to write about it after this time. Later, I decided to post it on my blog because I thought it was a topic worth discussing. Although I know that no one would enter my blog, I still wish those who see this article could rethink those gender problems in the language we speak every day because language is part of our daily life. Language changes can actually help improve this situation.
+This article (aka 小作文) is for my final exam of my linguistics class originally. I chose this topic because I thought that I may not be able to write about it after this time. Later, I decided to post it on my blog because I thought it was a topic worth discussing. Although I know that no one would enter my blog, I still wish those who see this article could rethink those gender problems in the language we speak every day because language is part of our daily life. Language changes can actually help improve this situation.
 
 Personally, I want to thank everyone who helped me. Those who have always stood by me, especially the one who assisted me in correcting the grammar errors.
 
@@ -53,7 +53,7 @@ In fact, the character ‘姖 (LSKH Jyutping: geoi5)’ does exist, and some peo
 
 However, there is one feature that both the Greek and Chinese languages share, the pronoun-drop. This is the most common way to not specify a gender. For example:
 
-![example](/pics/2023-01-24/examp.png)
+![example](_pics/2023-01-24/examp.png)
 
 ### Nouns
 
@@ -83,7 +83,7 @@ The character ‘她’ was a significant part of the New Culture Movement, as 
 
 However, the reality is not always like the theory. To know the actuality, a vote was set to investigate if ‘他’ is still considered as gender-neutral.
 
-![vote result](/pics/2023-01-24/vote.png)  
+![vote result](_pics/2023-01-24/vote.png)  
 (Picture: The result of a not very precise survey)
 
 Random 50 people attended, and there are 44% (22 people, including me) people, almost a half, think that it is not gender-neutral. It means that the character ‘她’, being affected by English, actually took the feminine meaning from the original character ‘他’, which became the pronoun for males in parole, losing its neutrality but still being general in syntax, plus the ‘son preference’ issue in China, which still exists in China, causing the problem of "male as norm" in Chinese pronouns. 

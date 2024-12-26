@@ -5,11 +5,11 @@ date:   2021-06-06
 tags: router asuswrt-merlin
 ---
 
-Well, actually I don't want too many people in my university know this, so I decided writing this blog in English and not to mention the name of my school clearly here. You can find the name in the blog, if it isn't your school, hopefully, the part of cross compiling can help you.
+Well, actually I don't want too many people in my university to know this, so I decided to write this blog in English and not to mention the name of my school clearly here. You can find the name in the blog, if it isn't your school, hopefully, the part of cross compiling can help you.
 
 ---
 
-I have two routers in my dormitory. During the last year, the software, called *[MiniEAP](https://github.com/updateing/minieap)*, ran on my Redmi router, and another router, manufactured by Netgear, allowed me to use 5GHz WLAN in 64 Channel, which is disabled in my Redmi router. It's pretty annoying, not only because of those messy cables, but also because when I want to connect to my Netgear router via ssh, I have to plug in another network cable to connect. That's why I finally decided to spend my Saturday to finish it. 	~~(COVID-19 sucks. I want to play maimai in game centre)~~
+I have two routers in my dormitory. During the last year, the software, called *[MiniEAP](https://github.com/updateing/minieap)*, ran on my Redmi router, and another router, manufactured by Netgear, allowed me to use 5GHz WLAN in 64 Channel, which is disabled in my Redmi router. It's pretty annoying, not only because of those messy cables, but also because when I want to connect to my Netgear router via ssh, I have to plug in another network cable to connect. That's why I finally decided to spend my Saturday finishing it.   ~~(COVID-19 sucks. I want to play maimai in game centre)~~
 
 I decided to cross compile MiniEAP for my Netgear R6900, which is running Asuswrt-Merlin. To get started, you need Linux. I am using Debian sid, but you can use any distro you like. Anyway, it is still a better choice to check the [wiki](https://github.com/RMerl/asuswrt-merlin.ng/wiki)...
 
@@ -25,7 +25,7 @@ To build the environment, some packages need to be installed at first. In fact, 
 sudo apt --no-install-recommends install autoconf automake bash bison bzip2 diffutils file flex g++ gawk gcc-multilib gettext gperf groff-base libncurses-dev libexpat1-dev libslang2 libssl-dev libtool libxml-parser-perl make patch perl pkg-config python sed shtool tar texinfo unzip zlib1g zlib1g-dev lib32z1-dev lib32stdc++6 automake1.11
 ```
 
-Also add i386 arch to package dependencies (I guess no one use 32 bits or x86 here):
+Also add i386 arch to package dependencies (I guess no one uses 32 bits or x86 here):
 
 ```
 sudo dpkg --add-architecture i386
@@ -47,7 +47,7 @@ And don't forget MiniEAP:
 git clone https://github.com/updateing/minieap.git
 ```
 
-In my school, the patches are necessary. These patches are used by GZHU originally, but they are also available in my school:
+For my university, the patches are necessary. These patches were used by GZHU originally, but they can be used at my university as well.
 
 ```
 git clone https://github.com/ysc3839/openwrt-minieap.git package/minieap
@@ -65,9 +65,9 @@ patch -p1 < ~/openwrt-minieap/patches/004-fix-logging-buffer.patch
 patch -p1 < ~/openwrt-minieap/patches/005-remove-pid-check-warn.patch
 ```
 
-![wtf](/pics/2021-06-06/wtf.jpg)
+![wtf](_pics/2021-06-06/wtf.jpg)
 
-Actually I want to use an asterisk to get them done at once, but it threw me this... wtf
+Actually, I want to use an asterisk to get them done at once, but it threw me this... wtf
 
 ### Environment 
 
@@ -78,7 +78,8 @@ sudo ln -s ~/am-toolchains/brcm-arm-sdk/hndtools-arm-linux-2.6.36-uclibc-4.5.3 /
 echo "PATH=\$PATH:/opt/brcm-arm/bin" >> ~/.profile
 ```
 
-With those commands, while compiling, probably you won't success. Maybe you will got this after the `ldd` command:
+With those commands, while compiling, probably you won't succeed. Maybe you will get this after the `ldd` command:
+
 
 ```
 $ ldd /opt/brcm-arm/libexec/gcc/arm-brcm-linux-uclibcgnueabi/4.5.3/cc1
@@ -122,15 +123,15 @@ I would like to deal with it one file by one file.
 
 ### minieap/config.mk
 
-`config.mk` is used for compiling just like its filename. I would like a simple ~~and violent~~ method, just directly add this on the last of the file:
+`config.mk` is used for compiling, just like its filename. I would like a simple ~~and violent~~ method, just directly add this on the last of the file:
 
 ```
 CC := ~/am-toolchains/brcm-arm-sdk/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin/arm-uclibc-linux-2.6.36-gcc
 ```
 
-As I failed for many times, even I know I shouldn't do like this, but I am a little bit annoyed at last. **Plz adjust the paths for your own environment if necessary**.
+As I failed for many times, so even I know I shouldn't do like this, I am a little bit annoyed at last. **Plz adjust the paths for your own environment if necessary**.
 
-Also remove the "#" if front of `PLUGIN_MODULES += ifaddrs`, as we need to use it later.
+Also remove the "#" in front of `PLUGIN_MODULES += ifaddrs`, as we need to use it later.
 
 After all, the `config.mk` without comments looks like this:
 
@@ -171,7 +172,7 @@ If you run `make` directly, you will get an error about `-Wpedantic`, which isn'
 
 ### ifaddrs
 
-Then if you start compiling, you will get this sh*t:
+Then, if you start compiling, you will get this sh*t:
 
 ```
 util/net_util.o: In function `obtain_iface_mac':
@@ -185,25 +186,25 @@ collect2: ld returned 1 exit status
 
 It doesn't find those functions that the platform doesn't provide, so we need to add those files ourselves. That's why I add `PLUGIN_MODULES += ifaddrs` in `config.mk` before, as it enables us to use those files.
 
-Don't worry, we still have mighty GitHub. Many file can be found in GitHub. I used this [ifaddrs.c](https://github.com/SWRT-dev/bluecave-asuswrt/blob/master/release/src/router/smartdns/src/lib/ifaddrs.c) and this [ifaddrs.h](https://github.com/lattera/glibc/blob/master/inet/ifaddrs.h). I know little about C or C++, so I can't give too much advice. Add `ifaddrs.h` in `includes/` and add `ifaddrs.c` in `util/ifaddrs/`. Don't forget to edit `config.mk` if you didn't do it before. 
+Don't worry, we still have mighty GitHub. Many files can be found on GitHub. I used this [ifaddrs.c](https://github.com/SWRT-dev/bluecave-asuswrt/blob/master/release/src/router/smartdns/src/lib/ifaddrs.c) and this [ifaddrs.h](https://github.com/lattera/glibc/blob/master/inet/ifaddrs.h). I know little about C or C++, so I can't give too much advice. Add `ifaddrs.h` in `includes/` and add `ifaddrs.c` in `util/ifaddrs/`. Don't forget to edit `config.mk` if you didn't do it before. 
 
-After all things are done, enter `make` and start compiling. Compiling MiniEAP is pretty fast. You can type `file minieap` to check if everything is fine.
+After all things are done, enter `make` and start compiling. Compiling MiniEAP is pretty fast. You can type `file minieap` to check if everything is fine.
 
-![file](/pics/2021-06-06/file.png)
+![file](_pics/2021-06-06/file.png)
 
 ## RUN!
 
-Using `scp` or any other method to upload the file to your router. Type `./minieap` you will get a message asking you to login. With `-w` , you can save the configuration to `/etc/minieap.conf`. Don't forget to move your files **(one is your `minieap` program and another is the `/etc/minieap.conf`)** to `/jffs`, or the files will disappear after rebooting.
+Using `scp` or any other method to upload the file to your router. Type `./minieap` you will get a message asking you to login. With `-w`, you can save the configuration to `/etc/minieap.conf`. Don't forget to move your files **(one is your `minieap` program and another is the `/etc/minieap.conf`)** to `/jffs`, or the files will disappear after rebooting.
 
 There're some problems:
 
 ### Auto Reboot
 
-To use `crontab` in `Arsuswrt-Merlin` is a complex thing, as everything not in `/jffs` will be delete. However, we have [this](https://github.com/RMerl/asuswrt-merlin.ng/wiki/Scheduled-Reboot) in wiki. Just refer it.
+To use `crontab` in `Arsuswrt-Merlin` is a complex thing, as everything not in `/jffs` will be deleted. However, we have [this](https://github.com/RMerl/asuswrt-merlin.ng/wiki/Scheduled-Reboot) on wiki. Just refer to it.
 
 ### Auto Reauth
 
-According to this [issue](https://github.com/updateing/minieap/issues/43), you need to delete `no-auto-reauth` to enable auto reauth. It is simple but I still can't reauth, but it is worth trying.
+According to this [issue](https://github.com/updateing/minieap/issues/43), you need to delete `no-auto-reauth` to enable auto reauth. It is simple, but I still can't reauth, but it is worth trying.
 
 My solution is ping. Here is my script:
 
@@ -222,13 +223,13 @@ do
 done
 ```
 
-It means if the router cannot ping `cn.bing.com` successfully, it will write a log in `/var/log/watchdog.log` and restart MiniEAP. In fact I don't want any outputs, as my MiniEAP disconnects every 20 seconds...
+It means if the router cannot ping `cn.bing.com` successfully, it will write a log in `/var/log/watchdog.log` and restart MiniEAP. In fact, I don't want any outputs, as my MiniEAP disconnects every 20 seconds...
 
 
 
-![log](/pics/2021-06-06/log.png)
+![log](_pics/2021-06-06/log.png)
 
-In User scripts, we have `wan-script`, add this three lines in the script:
+In User scripts, we have `wan-script`, add these three lines in the script:
 
 ```
 cp /jffs/minieap/minieap.conf /etc/
@@ -238,7 +239,7 @@ cp /jffs/minieap/minieap.conf /etc/
 
 **Adjust the paths for your own environment if necessary**.
 
-`wan-script` contains the scripts that will run after WAN interface came up, in new version of `Asuswrt-Merlin`, it have been replaced by `wan-start`. The first line means copy new `minieap.conf` to `/etc`, as everything has gone after rebooting. Then it restarts `MiniEAP`. Finally, the `watchdog.sh` will run to keep auth.
+`wan-script` contains the scripts that will run after the WAN interface comes up, in the new version of `Asuswrt-Merlin`, it has been replaced by `wan-start`. The first line means copy new `minieap.conf` to `/etc`, as everything has gone after rebooting. Then it restarts `MiniEAP`. Finally, the `watchdog.sh` will run to keep auth.
 
 Now enjoy your Campus Internet. Everything is fine.
 
