@@ -28,7 +28,7 @@ plugins:
   - jekyll-paginate
 
 dash:
-  date_format: "%b %-d, %Y"
+  date_format: "%-d %b %Y"
 
   giscus:
     repo: Linoleum2609/Linoleum2609.github.io
@@ -40,11 +40,11 @@ dash:
     - url: https://kunihi.ro/feed.xml
       icon: simple-icons:rss
       color: orange
-    - url: https://github.com/Linoleum2609
+    - url: https://github.com/sitruunahappo
       icon: simple-icons:github
       color: purple
-    - url: https://osu.ppy.sh/users/9829957
-      icon: simple-icons:osu
-      color: pink
+#    - url: https://osu.ppy.sh/users/9829957
+#      icon: simple-icons:osu
+#      color: pink
 
   show_author: true

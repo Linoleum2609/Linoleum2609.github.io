@@ -11,8 +11,6 @@ This article (aka 小作文) is for my final exam of my linguistics class origin
 
 Personally, I want to thank everyone who helped me. Those who have always stood by me, especially the one who assisted me in correcting the grammar errors.
 
-Here we go ~ to the content.
-
 ---
 
 The Chinese language is a typical genderless language. The Greek language is a typical fully gendered language. The comparison of these two languages can give us a better understanding of how grammatical gender and even gender itself work in a language, leading us to gender issue, an existing problem in China, and how it exists in Mandarin.
@@ -79,14 +77,14 @@ In fact, the Chinese language, and the Greek language share some of the same cha
 
 ### Inside Pronouns
 
-The character ‘她’ was a significant part of the New Culture Movement, as it helped women's liberation and the feminism movement at that time. With the same pronunciation, this character became popular, defeating the word ‘他女’, which borrowed from the Japanese word kanojo (彼女, 彼 (kano, his) + 女 (onna, woman)) and the word ‘伊 (Pinyin: yī)’, which was the first word for ‘she’.
+The character ‘她’ was a significant part of the New Culture Movement, as it helped women's liberation and the feminism movement at that time. With the same pronunciation, this character became popular, defeating the word ‘他女’, which borrowed from the Japanese word kanojo (彼女, 彼 (kano, his) + 女 (onna, woman)) and the word ‘伊 (Pinyin: yī)’, which was the first word for ‘she’.
 
 However, the reality is not always like the theory. To know the actuality, a vote was set to investigate if ‘他’ is still considered as gender-neutral.
 
 ![vote result](/pics/2023-01-24/vote.png)  
 (Picture: The result of a not very precise survey)
 
-Random 50 people attended, and there are 44% (22 people, including me) people, almost a half, think that it is not gender-neutral. It means that the character ‘她’, being affected by English, actually took the feminine meaning from the original character ‘他’, which became the pronoun for males in parole, losing its neutrality but still being general in syntax, plus the ‘son preference’ issue in China, which still exists in China, causing the problem of "male as norm" in Chinese pronouns. 
+Random 50 people attended, and there are 44% (22 people, including me) people, almost a half, think that it is not gender-neutral. It means that the character ‘她’, being affected by English, actually took the feminine meaning from the original character ‘他’, which became the pronoun for males in parole, losing its neutrality but still being general in syntax, plus the ‘son preference’ issue in China, which still exists in China, causing the problem of "male as norm" in Chinese pronouns. 
 
 Fortunately, more and more people realise this problem, and ‘TA’  have been created for neutral usage. This expression comes from the sound, as all third personal pronouns sound the same. The expression becomes popular among the Internet.
 
@@ -96,7 +94,7 @@ In semantics, the word ‘unmarked’ usually refers to a basic word, usually th
 
 During 2020, ‘πρόεδρος or προεδρίνα’ received a lot of attention in Greece. It shows that in Greek, the masculine form in the unmarked one. The situation is the same in Chinese: in Chinese, if a specific gender is not given to a word (especially occupations, titles, etc.), most of the time the word refers to male. In other word, the unmarked form is not such gender-neutral as what people think in Chinese. Τheoretically, a word in Chinese should be neutral. However, because of the influence of ‘male as norm’, in reality, an unmarked word, of course which can be marked with ‘男’ or ‘女’, usually refers to male.
 
-In 2014, a Taiwanese politician, Lai Pin-yu, who participated in the Sunflower Student Movement, becomes ‘太陽花女戰神’, which literally means ‘Sunflower goddess of war’, on the Internet. 
+In 2014, a Taiwanese politician, Lai Pin-yu, who participated in the Sunflower Student Movement, becomes ‘太陽花女戰神’, which literally means ‘Sunflower goddess of war’, on the Internet. 
 The word ‘女戰神 (Pinyin: nǚ zhàn shén)’ literally translates to ‘goddess’. However, just like above, the form is not the same in Chinese. This compound word consists of ‘女’ and ‘戰神’. Using the unmarked form, it is ‘woman’ and ‘god of war’.
 Her reply showed the same opinion: ‘Why was “women” added? You calls Huang Kuo-chang “god of war”, calls Lin Fei-fan “god of war”. Why calls me “women god of war”? I think this is because women are assumed to be weaker, so when they feel you are different, they will specifically show that you are female. [2](https://kunihi.ro/2023/01/24/A-Comparison-on-Gender-between-Chinese-and-Greek-and-Gender-Issues-in-Chinese.html#notes)’ 
 
